@@ -1,0 +1,382 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F5EB3BE6-C7C4-4321-B971-E3610669E023}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Zainab</RootNamespace>
+    <AssemblyName>Zainab</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>hostel.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Booking.cs" />
+    <Compile Include="BookingMember.cs" />
+    <Compile Include="CheckRoomBooking.cs" />
+    <Compile Include="CheckRoomMember.cs" />
+    <Compile Include="FeeSubmission.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAttendence.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAttendence.Designer.cs">
+      <DependentUpon>frmAttendence.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAttendenceSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAttendenceSearch.Designer.cs">
+      <DependentUpon>frmAttendenceSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBooking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBooking.Designer.cs">
+      <DependentUpon>frmBooking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChangePassword.Designer.cs">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDeleteStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDeleteStaff.Designer.cs">
+      <DependentUpon>frmDeleteStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDeleteVisitor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDeleteVisitor.Designer.cs">
+      <DependentUpon>frmDeleteVisitor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmFeeSubmission.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFeeSubmission.Designer.cs">
+      <DependentUpon>frmFeeSubmission.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMenu.Designer.cs">
+      <DependentUpon>frmMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMess.Designer.cs">
+      <DependentUpon>frmMess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPerformance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPerformance.Designer.cs">
+      <DependentUpon>frmPerformance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRoom.Designer.cs">
+      <DependentUpon>frmRoom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRoomCapacity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRoomCapacity.Designer.cs">
+      <DependentUpon>frmRoomCapacity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSelectOption.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSelectOption.Designer.cs">
+      <DependentUpon>frmSelectOption.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStaff.Designer.cs">
+      <DependentUpon>frmStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmStudentDelete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStudentDelete.Designer.cs">
+      <DependentUpon>frmStudentDelete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmStudentUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStudentUpdate.Designer.cs">
+      <DependentUpon>frmStudentUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUpdateBookingRoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUpdateBookingRoom.Designer.cs">
+      <DependentUpon>frmUpdateBookingRoom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUpdateStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUpdateStaff.Designer.cs">
+      <DependentUpon>frmUpdateStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUpdateVisitor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUpdateVisitor.Designer.cs">
+      <DependentUpon>frmUpdateVisitor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVisitor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVisitor.Designer.cs">
+      <DependentUpon>frmVisitor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Room.cs" />
+    <Compile Include="RoomMember.cs" />
+    <Compile Include="Staff.cs" />
+    <Compile Include="StaffMember.cs" />
+    <Compile Include="Student.cs" />
+    <Compile Include="StudentMember.cs" />
+    <Compile Include="tblAttendence.cs">
+      <DependentUpon>Zainab.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblBookingRoom.cs">
+      <DependentUpon>Zainab.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblExpensive.cs">
+      <DependentUpon>Zainab.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblFeeSubmission.cs">
+      <DependentUpon>Zainab.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblMess.cs">
+      <DependentUpon>Zainab.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblMessRecord.cs">
+      <DependentUpon>Zainab.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblMonth.cs">
+      <DependentUpon>Zainab.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblRoom.cs">
+      <DependentUpon>Zainab.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblRoomType.cs">
+      <DependentUpon>Zainab.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblStaff.cs">
+      <DependentUpon>Zainab.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tblStudentInformation.cs">
+      <DependentUpon>Zainab.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Visitor.cs" />
+    <Compile Include="VisitorMember.cs" />
+    <Compile Include="Zainab.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Zainab.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Zainab.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Zainab.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Zainab.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Zainab.edmx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAttendence.resx">
+      <DependentUpon>frmAttendence.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAttendenceSearch.resx">
+      <DependentUpon>frmAttendenceSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBooking.resx">
+      <DependentUpon>frmBooking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChangePassword.resx">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDeleteStaff.resx">
+      <DependentUpon>frmDeleteStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDeleteVisitor.resx">
+      <DependentUpon>frmDeleteVisitor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFeeSubmission.resx">
+      <DependentUpon>frmFeeSubmission.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMenu.resx">
+      <DependentUpon>frmMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMess.resx">
+      <DependentUpon>frmMess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPerformance.resx">
+      <DependentUpon>frmPerformance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRoom.resx">
+      <DependentUpon>frmRoom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRoomCapacity.resx">
+      <DependentUpon>frmRoomCapacity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSelectOption.resx">
+      <DependentUpon>frmSelectOption.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStaff.resx">
+      <DependentUpon>frmStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStudentDelete.resx">
+      <DependentUpon>frmStudentDelete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStudentUpdate.resx">
+      <DependentUpon>frmStudentUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUpdateBookingRoom.resx">
+      <DependentUpon>frmUpdateBookingRoom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUpdateStaff.resx">
+      <DependentUpon>frmUpdateStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUpdateVisitor.resx">
+      <DependentUpon>frmUpdateVisitor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVisitor.resx">
+      <DependentUpon>frmVisitor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EntityDeploy Include="Zainab.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Zainab.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Zainab.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Zainab.edmx</DependentUpon>
+      <LastGenOutput>Zainab.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Zainab.edmx.diagram">
+      <DependentUpon>Zainab.edmx</DependentUpon>
+    </None>
+    <None Include="Zainab.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Zainab.edmx</DependentUpon>
+      <LastGenOutput>Zainab.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="hostel.ico" />
+    <None Include="Resources\math.png" />
+    <None Include="Resources\search.png" />
+    <None Include="Resources\save.png" />
+    <None Include="Resources\down.png" />
+    <None Include="Resources\up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

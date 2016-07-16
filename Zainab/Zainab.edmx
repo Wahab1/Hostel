@@ -1,0 +1,744 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="dbZainabModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="dbZainabModelStoreContainer">
+          <EntitySet Name="tblAttendence" EntityType="dbZainabModel.Store.tblAttendence" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblBookingRoom" EntityType="dbZainabModel.Store.tblBookingRoom" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblExpensive" EntityType="dbZainabModel.Store.tblExpensive" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblFeeSubmission" EntityType="dbZainabModel.Store.tblFeeSubmission" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblMess" EntityType="dbZainabModel.Store.tblMess" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblMessRecord" EntityType="dbZainabModel.Store.tblMessRecord" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblMonth" EntityType="dbZainabModel.Store.tblMonth" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblRoom" EntityType="dbZainabModel.Store.tblRoom" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblRoomType" EntityType="dbZainabModel.Store.tblRoomType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblStaff" EntityType="dbZainabModel.Store.tblStaff" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tblStudentInformation" EntityType="dbZainabModel.Store.tblStudentInformation" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Mess_Student" Association="dbZainabModel.Store.FK_Mess_Student">
+            <End Role="tblStudentInformation" EntitySet="tblStudentInformation" />
+            <End Role="tblMessRecord" EntitySet="tblMessRecord" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblAttendence_tblAttendence" Association="dbZainabModel.Store.FK_tblAttendence_tblAttendence">
+            <End Role="tblAttendence" EntitySet="tblAttendence" />
+            <End Role="tblAttendence1" EntitySet="tblAttendence" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblBookingRoom_tblRoom" Association="dbZainabModel.Store.FK_tblBookingRoom_tblRoom">
+            <End Role="tblRoom" EntitySet="tblRoom" />
+            <End Role="tblBookingRoom" EntitySet="tblBookingRoom" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblBookingRoom_tblStudentInformation" Association="dbZainabModel.Store.FK_tblBookingRoom_tblStudentInformation">
+            <End Role="tblStudentInformation" EntitySet="tblStudentInformation" />
+            <End Role="tblBookingRoom" EntitySet="tblBookingRoom" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblFeeSubmission_tblMonth" Association="dbZainabModel.Store.FK_tblFeeSubmission_tblMonth">
+            <End Role="tblMonth" EntitySet="tblMonth" />
+            <End Role="tblFeeSubmission" EntitySet="tblFeeSubmission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblFeeSubmission_tblRoom" Association="dbZainabModel.Store.FK_tblFeeSubmission_tblRoom">
+            <End Role="tblRoom" EntitySet="tblRoom" />
+            <End Role="tblFeeSubmission" EntitySet="tblFeeSubmission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblFeeSubmission_tblStudentInformation" Association="dbZainabModel.Store.FK_tblFeeSubmission_tblStudentInformation">
+            <End Role="tblStudentInformation" EntitySet="tblStudentInformation" />
+            <End Role="tblFeeSubmission" EntitySet="tblFeeSubmission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblMessRecord_tblMess" Association="dbZainabModel.Store.FK_tblMessRecord_tblMess">
+            <End Role="tblMess" EntitySet="tblMess" />
+            <End Role="tblMessRecord" EntitySet="tblMessRecord" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblRoom_tblRoomType" Association="dbZainabModel.Store.FK_tblRoom_tblRoomType">
+            <End Role="tblRoomType" EntitySet="tblRoomType" />
+            <End Role="tblRoom" EntitySet="tblRoom" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="tblAttendence">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Date" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblBookingRoom">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="StudentId" Type="int" />
+          <Property Name="RoomId" Type="int" />
+        </EntityType>
+        <EntityType Name="tblExpensive">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Month" Type="int" />
+          <Property Name="Year" Type="int" />
+          <Property Name="Expensive" Type="int" />
+        </EntityType>
+        <EntityType Name="tblFeeSubmission">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RoomId" Type="int" />
+          <Property Name="MonthId" Type="int" />
+          <Property Name="Year" Type="int" />
+          <Property Name="StudentId" Type="int" />
+        </EntityType>
+        <EntityType Name="tblMess">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Day" Type="nvarchar" MaxLength="10" />
+          <Property Name="Dish" Type="nvarchar" MaxLength="50" />
+          <Property Name="Rate" Type="int" />
+        </EntityType>
+        <EntityType Name="tblMessRecord">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="StudentId" Type="int" />
+          <Property Name="Month" Type="int" />
+          <Property Name="Year" Type="int" />
+          <Property Name="MessId" Type="int" />
+        </EntityType>
+        <EntityType Name="tblMonth">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Month" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="tblRoom">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RoomNo#" Type="nvarchar" MaxLength="6" />
+          <Property Name="RoomTypeId" Type="int" />
+          <Property Name="Room Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="Room Capacity" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="tblRoomType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Room_Type" Type="nvarchar" MaxLength="30" />
+          <Property Name="Room_Rent" Type="int" />
+        </EntityType>
+        <EntityType Name="tblStaff">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="20" />
+          <Property Name="CNIC" Type="nvarchar" MaxLength="15" />
+          <Property Name="Contact" Type="nvarchar" MaxLength="20" />
+          <Property Name="Address" Type="nvarchar" MaxLength="200" />
+          <Property Name="GenderId" Type="int" />
+          <Property Name="ImageUrl" Type="nvarchar" MaxLength="100" />
+          <Property Name="Salary" Type="int" />
+        </EntityType>
+        <EntityType Name="tblStudentInformation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Full_Name" Type="nvarchar" MaxLength="30" />
+          <Property Name="CNIC" Type="nvarchar" MaxLength="15" />
+          <Property Name="Contact_No#" Type="nvarchar" MaxLength="15" />
+          <Property Name="DepartmentId" Type="int" />
+          <Property Name="DegreeId" Type="int" />
+          <Property Name="RollNo#" Type="nvarchar" MaxLength="10" />
+          <Property Name="Session" Type="nvarchar" MaxLength="20" />
+          <Property Name="Age" Type="int" />
+          <Property Name="Father/Guardian_Name" Type="nvarchar" MaxLength="30" />
+          <Property Name="Occupation" Type="nvarchar" MaxLength="30" />
+          <Property Name="Income" Type="int" />
+          <Property Name="Address" Type="nvarchar" MaxLength="200" />
+          <Property Name="ReligionId" Type="int" />
+          <Property Name="GenderId" Type="int" />
+          <Property Name="Nationality" Type="nvarchar" MaxLength="50" />
+          <Property Name="ImageUrl" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <Association Name="FK_Mess_Student">
+          <End Role="tblStudentInformation" Type="dbZainabModel.Store.tblStudentInformation" Multiplicity="0..1" />
+          <End Role="tblMessRecord" Type="dbZainabModel.Store.tblMessRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblStudentInformation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblMessRecord">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblAttendence_tblAttendence">
+          <End Role="tblAttendence" Type="dbZainabModel.Store.tblAttendence" Multiplicity="1" />
+          <End Role="tblAttendence1" Type="dbZainabModel.Store.tblAttendence" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="tblAttendence">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblAttendence1">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblBookingRoom_tblRoom">
+          <End Role="tblRoom" Type="dbZainabModel.Store.tblRoom" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblBookingRoom" Type="dbZainabModel.Store.tblBookingRoom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblRoom">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblBookingRoom">
+              <PropertyRef Name="RoomId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblBookingRoom_tblStudentInformation">
+          <End Role="tblStudentInformation" Type="dbZainabModel.Store.tblStudentInformation" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblBookingRoom" Type="dbZainabModel.Store.tblBookingRoom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblStudentInformation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblBookingRoom">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblFeeSubmission_tblMonth">
+          <End Role="tblMonth" Type="dbZainabModel.Store.tblMonth" Multiplicity="0..1" />
+          <End Role="tblFeeSubmission" Type="dbZainabModel.Store.tblFeeSubmission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblMonth">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFeeSubmission">
+              <PropertyRef Name="MonthId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblFeeSubmission_tblRoom">
+          <End Role="tblRoom" Type="dbZainabModel.Store.tblRoom" Multiplicity="0..1" />
+          <End Role="tblFeeSubmission" Type="dbZainabModel.Store.tblFeeSubmission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblRoom">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFeeSubmission">
+              <PropertyRef Name="RoomId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblFeeSubmission_tblStudentInformation">
+          <End Role="tblStudentInformation" Type="dbZainabModel.Store.tblStudentInformation" Multiplicity="0..1" />
+          <End Role="tblFeeSubmission" Type="dbZainabModel.Store.tblFeeSubmission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblStudentInformation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFeeSubmission">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblMessRecord_tblMess">
+          <End Role="tblMess" Type="dbZainabModel.Store.tblMess" Multiplicity="0..1" />
+          <End Role="tblMessRecord" Type="dbZainabModel.Store.tblMessRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblMess">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblMessRecord">
+              <PropertyRef Name="MessId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblRoom_tblRoomType">
+          <End Role="tblRoomType" Type="dbZainabModel.Store.tblRoomType" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tblRoom" Type="dbZainabModel.Store.tblRoom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblRoomType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblRoom">
+              <PropertyRef Name="RoomTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <!--Errors Found During Generation:
+      warning 6013: The table/view 'dbZainab.dbo.vwBookingRoom' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="vwBookingRoom">
+        <Property Name="Full_Name" Type="nvarchar" MaxLength="30" />
+        <Property Name="RoomNo#" Type="nvarchar" MaxLength="6" />
+      </EntityType>-->
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbZainabModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="dbZainabEntities1" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="tblAttendences" EntityType="dbZainabModel.tblAttendence" />
+          <EntitySet Name="tblStaffs" EntityType="dbZainabModel.tblStaff" />
+          <EntitySet Name="tblBookingRooms" EntityType="dbZainabModel.tblBookingRoom" />
+          <EntitySet Name="tblRooms" EntityType="dbZainabModel.tblRoom" />
+          <EntitySet Name="tblStudentInformations" EntityType="dbZainabModel.tblStudentInformation" />
+          <AssociationSet Name="FK_tblBookingRoom_tblRoom" Association="dbZainabModel.FK_tblBookingRoom_tblRoom">
+            <End Role="tblRoom" EntitySet="tblRooms" />
+            <End Role="tblBookingRoom" EntitySet="tblBookingRooms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblBookingRoom_tblStudentInformation" Association="dbZainabModel.FK_tblBookingRoom_tblStudentInformation">
+            <End Role="tblStudentInformation" EntitySet="tblStudentInformations" />
+            <End Role="tblBookingRoom" EntitySet="tblBookingRooms" />
+          </AssociationSet>
+          <EntitySet Name="tblMesses" EntityType="dbZainabModel.tblMess" />
+          <EntitySet Name="tblMessRecords" EntityType="dbZainabModel.tblMessRecord" />
+          <AssociationSet Name="FK_tblAttendence_tblAttendence" Association="dbZainabModel.FK_tblAttendence_tblAttendence">
+            <End Role="tblAttendence" EntitySet="tblAttendences" />
+            <End Role="tblAttendence1" EntitySet="tblAttendences" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mess_Student" Association="dbZainabModel.FK_Mess_Student">
+            <End Role="tblStudentInformation" EntitySet="tblStudentInformations" />
+            <End Role="tblMessRecord" EntitySet="tblMessRecords" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblMessRecord_tblMess" Association="dbZainabModel.FK_tblMessRecord_tblMess">
+            <End Role="tblMess" EntitySet="tblMesses" />
+            <End Role="tblMessRecord" EntitySet="tblMessRecords" />
+          </AssociationSet>
+          <EntitySet Name="tblExpensives" EntityType="dbZainabModel.tblExpensive" />
+          <EntitySet Name="tblFeeSubmissions" EntityType="dbZainabModel.tblFeeSubmission" />
+          <EntitySet Name="tblMonths" EntityType="dbZainabModel.tblMonth" />
+          <AssociationSet Name="FK_tblFeeSubmission_tblMonth" Association="dbZainabModel.FK_tblFeeSubmission_tblMonth">
+            <End Role="tblMonth" EntitySet="tblMonths" />
+            <End Role="tblFeeSubmission" EntitySet="tblFeeSubmissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblFeeSubmission_tblRoom" Association="dbZainabModel.FK_tblFeeSubmission_tblRoom">
+            <End Role="tblRoom" EntitySet="tblRooms" />
+            <End Role="tblFeeSubmission" EntitySet="tblFeeSubmissions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblFeeSubmission_tblStudentInformation" Association="dbZainabModel.FK_tblFeeSubmission_tblStudentInformation">
+            <End Role="tblStudentInformation" EntitySet="tblStudentInformations" />
+            <End Role="tblFeeSubmission" EntitySet="tblFeeSubmissions" />
+          </AssociationSet>
+          <EntitySet Name="tblRoomTypes" EntityType="dbZainabModel.tblRoomType" />
+          <AssociationSet Name="FK_tblRoom_tblRoomType" Association="dbZainabModel.FK_tblRoom_tblRoomType">
+            <End Role="tblRoomType" EntitySet="tblRoomTypes" />
+            <End Role="tblRoom" EntitySet="tblRooms" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="tblAttendence">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Date" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="tblAttendence1" Relationship="dbZainabModel.FK_tblAttendence_tblAttendence" FromRole="tblAttendence" ToRole="tblAttendence1" />
+          <NavigationProperty Name="tblAttendence2" Relationship="dbZainabModel.FK_tblAttendence_tblAttendence" FromRole="tblAttendence1" ToRole="tblAttendence" />
+        </EntityType>
+        <EntityType Name="tblStaff">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="CNIC" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+          <Property Name="Contact" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="Address" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="GenderId" Type="Int32" />
+          <Property Name="ImageUrl" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Salary" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblBookingRoom">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="StudentId" />
+          <Property Type="Int32" Name="RoomId" />
+          <NavigationProperty Name="tblRoom" Relationship="dbZainabModel.FK_tblBookingRoom_tblRoom" FromRole="tblBookingRoom" ToRole="tblRoom" />
+          <NavigationProperty Name="tblStudentInformation" Relationship="dbZainabModel.FK_tblBookingRoom_tblStudentInformation" FromRole="tblBookingRoom" ToRole="tblStudentInformation" />
+        </EntityType>
+        <EntityType Name="tblRoom">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="RoomNo_" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="RoomTypeId" />
+          <Property Type="String" Name="Room_Description" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Room_Capacity" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="tblBookingRooms" Relationship="dbZainabModel.FK_tblBookingRoom_tblRoom" FromRole="tblRoom" ToRole="tblBookingRoom" />
+          <NavigationProperty Name="tblFeeSubmissions" Relationship="dbZainabModel.FK_tblFeeSubmission_tblRoom" FromRole="tblRoom" ToRole="tblFeeSubmission" />
+          <NavigationProperty Name="tblRoomType" Relationship="dbZainabModel.FK_tblRoom_tblRoomType" FromRole="tblRoom" ToRole="tblRoomType" />
+        </EntityType>
+        <EntityType Name="tblStudentInformation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Full_Name" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CNIC" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Contact_No_" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="DepartmentId" />
+          <Property Type="Int32" Name="DegreeId" />
+          <Property Type="String" Name="RollNo_" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Session" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Age" />
+          <Property Type="String" Name="Father_Guardian_Name" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Occupation" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Income" />
+          <Property Type="String" Name="Address" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="ReligionId" />
+          <Property Type="Int32" Name="GenderId" />
+          <Property Type="String" Name="Nationality" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ImageUrl" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblBookingRooms" Relationship="dbZainabModel.FK_tblBookingRoom_tblStudentInformation" FromRole="tblStudentInformation" ToRole="tblBookingRoom" />
+          <NavigationProperty Name="tblMessRecords" Relationship="dbZainabModel.FK_Mess_Student" FromRole="tblStudentInformation" ToRole="tblMessRecord" />
+          <NavigationProperty Name="tblFeeSubmissions" Relationship="dbZainabModel.FK_tblFeeSubmission_tblStudentInformation" FromRole="tblStudentInformation" ToRole="tblFeeSubmission" />
+        </EntityType>
+        <Association Name="FK_tblBookingRoom_tblRoom">
+          <End Type="dbZainabModel.tblRoom" Role="tblRoom" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="dbZainabModel.tblBookingRoom" Role="tblBookingRoom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblRoom">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblBookingRoom">
+              <PropertyRef Name="RoomId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblBookingRoom_tblStudentInformation">
+          <End Type="dbZainabModel.tblStudentInformation" Role="tblStudentInformation" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="dbZainabModel.tblBookingRoom" Role="tblBookingRoom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblStudentInformation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblBookingRoom">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tblMess">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Day" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Dish" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Rate" />
+          <NavigationProperty Name="tblMessRecords" Relationship="dbZainabModel.FK_tblMessRecord_tblMess" FromRole="tblMess" ToRole="tblMessRecord" />
+        </EntityType>
+        <EntityType Name="tblMessRecord">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="StudentId" />
+          <Property Type="Int32" Name="Month" />
+          <Property Type="Int32" Name="Year" />
+          <NavigationProperty Name="tblStudentInformation" Relationship="dbZainabModel.FK_Mess_Student" FromRole="tblMessRecord" ToRole="tblStudentInformation" />
+          <Property Type="Int32" Name="MessId" />
+          <NavigationProperty Name="tblMess" Relationship="dbZainabModel.FK_tblMessRecord_tblMess" FromRole="tblMessRecord" ToRole="tblMess" />
+        </EntityType>
+        <Association Name="FK_tblAttendence_tblAttendence">
+          <End Type="dbZainabModel.tblAttendence" Role="tblAttendence" Multiplicity="1" />
+          <End Type="dbZainabModel.tblAttendence" Role="tblAttendence1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="tblAttendence">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblAttendence1">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mess_Student">
+          <End Type="dbZainabModel.tblStudentInformation" Role="tblStudentInformation" Multiplicity="0..1" />
+          <End Type="dbZainabModel.tblMessRecord" Role="tblMessRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblStudentInformation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblMessRecord">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblMessRecord_tblMess">
+          <End Type="dbZainabModel.tblMess" Role="tblMess" Multiplicity="0..1" />
+          <End Type="dbZainabModel.tblMessRecord" Role="tblMessRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblMess">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblMessRecord">
+              <PropertyRef Name="MessId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tblExpensive">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Month" />
+          <Property Type="Int32" Name="Year" />
+          <Property Type="Int32" Name="Expensive" />
+        </EntityType>
+        <EntityType Name="tblFeeSubmission">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="RoomId" />
+          <Property Type="Int32" Name="MonthId" />
+          <Property Type="Int32" Name="Year" />
+          <Property Type="Int32" Name="StudentId" />
+          <NavigationProperty Name="tblMonth" Relationship="dbZainabModel.FK_tblFeeSubmission_tblMonth" FromRole="tblFeeSubmission" ToRole="tblMonth" />
+          <NavigationProperty Name="tblRoom" Relationship="dbZainabModel.FK_tblFeeSubmission_tblRoom" FromRole="tblFeeSubmission" ToRole="tblRoom" />
+          <NavigationProperty Name="tblStudentInformation" Relationship="dbZainabModel.FK_tblFeeSubmission_tblStudentInformation" FromRole="tblFeeSubmission" ToRole="tblStudentInformation" />
+        </EntityType>
+        <EntityType Name="tblMonth">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Month" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tblFeeSubmissions" Relationship="dbZainabModel.FK_tblFeeSubmission_tblMonth" FromRole="tblMonth" ToRole="tblFeeSubmission" />
+        </EntityType>
+        <Association Name="FK_tblFeeSubmission_tblMonth">
+          <End Type="dbZainabModel.tblMonth" Role="tblMonth" Multiplicity="0..1" />
+          <End Type="dbZainabModel.tblFeeSubmission" Role="tblFeeSubmission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblMonth">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFeeSubmission">
+              <PropertyRef Name="MonthId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblFeeSubmission_tblRoom">
+          <End Type="dbZainabModel.tblRoom" Role="tblRoom" Multiplicity="0..1" />
+          <End Type="dbZainabModel.tblFeeSubmission" Role="tblFeeSubmission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblRoom">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFeeSubmission">
+              <PropertyRef Name="RoomId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tblFeeSubmission_tblStudentInformation">
+          <End Type="dbZainabModel.tblStudentInformation" Role="tblStudentInformation" Multiplicity="0..1" />
+          <End Type="dbZainabModel.tblFeeSubmission" Role="tblFeeSubmission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblStudentInformation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblFeeSubmission">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tblRoomType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Room_Type" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Room_Rent" />
+          <NavigationProperty Name="tblRooms" Relationship="dbZainabModel.FK_tblRoom_tblRoomType" FromRole="tblRoomType" ToRole="tblRoom" />
+        </EntityType>
+        <Association Name="FK_tblRoom_tblRoomType">
+          <End Type="dbZainabModel.tblRoomType" Role="tblRoomType" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="dbZainabModel.tblRoom" Role="tblRoom" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblRoomType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblRoom">
+              <PropertyRef Name="RoomTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbZainabModelStoreContainer" CdmEntityContainer="dbZainabEntities1">
+          <EntitySetMapping Name="tblAttendences">
+            <EntityTypeMapping TypeName="dbZainabModel.tblAttendence">
+              <MappingFragment StoreEntitySet="tblAttendence">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblStaffs">
+            <EntityTypeMapping TypeName="dbZainabModel.tblStaff">
+              <MappingFragment StoreEntitySet="tblStaff">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CNIC" ColumnName="CNIC" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="GenderId" ColumnName="GenderId" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblBookingRooms">
+            <EntityTypeMapping TypeName="dbZainabModel.tblBookingRoom">
+              <MappingFragment StoreEntitySet="tblBookingRoom">
+                <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblRooms">
+            <EntityTypeMapping TypeName="dbZainabModel.tblRoom">
+              <MappingFragment StoreEntitySet="tblRoom">
+                <ScalarProperty Name="Room_Capacity" ColumnName="Room Capacity" />
+                <ScalarProperty Name="Room_Description" ColumnName="Room Description" />
+                <ScalarProperty Name="RoomTypeId" ColumnName="RoomTypeId" />
+                <ScalarProperty Name="RoomNo_" ColumnName="RoomNo#" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblStudentInformations">
+            <EntityTypeMapping TypeName="dbZainabModel.tblStudentInformation">
+              <MappingFragment StoreEntitySet="tblStudentInformation">
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+                <ScalarProperty Name="GenderId" ColumnName="GenderId" />
+                <ScalarProperty Name="ReligionId" ColumnName="ReligionId" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Income" ColumnName="Income" />
+                <ScalarProperty Name="Occupation" ColumnName="Occupation" />
+                <ScalarProperty Name="Father_Guardian_Name" ColumnName="Father/Guardian_Name" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Session" ColumnName="Session" />
+                <ScalarProperty Name="RollNo_" ColumnName="RollNo#" />
+                <ScalarProperty Name="DegreeId" ColumnName="DegreeId" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="Contact_No_" ColumnName="Contact_No#" />
+                <ScalarProperty Name="CNIC" ColumnName="CNIC" />
+                <ScalarProperty Name="Full_Name" ColumnName="Full_Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblMesses">
+            <EntityTypeMapping TypeName="dbZainabModel.tblMess">
+              <MappingFragment StoreEntitySet="tblMess">
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="Dish" ColumnName="Dish" />
+                <ScalarProperty Name="Day" ColumnName="Day" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblMessRecords">
+            <EntityTypeMapping TypeName="dbZainabModel.tblMessRecord">
+              <MappingFragment StoreEntitySet="tblMessRecord">
+                <ScalarProperty Name="MessId" ColumnName="MessId" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblExpensives">
+            <EntityTypeMapping TypeName="dbZainabModel.tblExpensive">
+              <MappingFragment StoreEntitySet="tblExpensive">
+                <ScalarProperty Name="Expensive" ColumnName="Expensive" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblFeeSubmissions">
+            <EntityTypeMapping TypeName="dbZainabModel.tblFeeSubmission">
+              <MappingFragment StoreEntitySet="tblFeeSubmission">
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="MonthId" ColumnName="MonthId" />
+                <ScalarProperty Name="RoomId" ColumnName="RoomId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblMonths">
+            <EntityTypeMapping TypeName="dbZainabModel.tblMonth">
+              <MappingFragment StoreEntitySet="tblMonth">
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblRoomTypes">
+            <EntityTypeMapping TypeName="dbZainabModel.tblRoomType">
+              <MappingFragment StoreEntitySet="tblRoomType">
+                <ScalarProperty Name="Room_Rent" ColumnName="Room_Rent" />
+                <ScalarProperty Name="Room_Type" ColumnName="Room_Type" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

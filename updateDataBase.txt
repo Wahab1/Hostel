@@ -1,0 +1,24 @@
+Create View vwStudentSlip
+as
+Select S.Full_Name as StudentName,S.CNIC,S.Contact_No#,S.DepartmentId,S.DegreeId,
+S.Session,R.RoomNo#
+from tblBookingRoom B join tblStudentInformation S
+on B.StudentId=S.Id join tblRoom R on B.RoomId=R.Id
+
+Create view vwCompleteStudentSlip
+as
+Select S.StudentName,S.CNIC,S.Contact_No#,
+S.Session,D.Department,Deg.Degree,S.RoomNo#
+ from vwStudentSlip S join tblDepartment D
+on S.DepartmentId=D.Id join tblDegree Deg 
+on S.DegreeId=Deg.Id
+
+alter view vwFeeSubmisstionComplete
+as
+Select F.Id,M.Month,F.Year,S.Full_Name as [Student Name],S.CNIC,S.Contact_No#
+,S.RollNo#,S.Session,S.[Father/Guardian_Name],R.RoomNo#,
+RT.Room_Rent
+ from tblFeeSubmission F join 
+tblMonth M on F.MonthId=M.Id join tblRoom R
+on F.RoomId =R.Id join tblStudentInformation S
+on F.StudentId=S.Id join tblRoomType RT on R.RoomTypeId=RT.Id

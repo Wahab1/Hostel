@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cfcf77c6fb314298be53362af89ff3fd" Name="Diagram1" ZoomLevel="62">
+        <EntityTypeShape EntityType="dbZainabModel.tblAttendence" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbZainabModel.tblStaff" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbZainabModel.tblBookingRoom" Width="1.5" PointX="4.375" PointY="3" IsExpanded="false" />
+        <EntityTypeShape EntityType="dbZainabModel.tblRoom" Width="1.5" PointX="5.5" PointY="4" IsExpanded="false" />
+        <EntityTypeShape EntityType="dbZainabModel.tblStudentInformation" Width="1.5" PointX="6.375" PointY="2.875" IsExpanded="false" />
+        <AssociationConnector Association="dbZainabModel.FK_tblBookingRoom_tblRoom" />
+        <AssociationConnector Association="dbZainabModel.FK_tblBookingRoom_tblStudentInformation" />
+        <EntityTypeShape EntityType="dbZainabModel.tblMess" Width="1.5" PointX="11.5" PointY="7.625" IsExpanded="false" />
+        <EntityTypeShape EntityType="dbZainabModel.tblMessRecord" Width="1.5" PointX="7.75" PointY="4.125" IsExpanded="false" />
+        <AssociationConnector Association="dbZainabModel.FK_tblAttendence_tblAttendence" />
+        <AssociationConnector Association="dbZainabModel.FK_Mess_Student" />
+        <AssociationConnector Association="dbZainabModel.FK_tblMessRecord_tblMess" />
+        <EntityTypeShape EntityType="dbZainabModel.tblExpensive" Width="1.5" PointX="2" PointY="7.5" />
+        <EntityTypeShape EntityType="dbZainabModel.tblFeeSubmission" Width="1.5" PointX="8.625" PointY="19.75" />
+        <EntityTypeShape EntityType="dbZainabModel.tblMonth" Width="1.5" PointX="1.4057173642356495" PointY="7.8700369484117427" />
+        <AssociationConnector Association="dbZainabModel.FK_tblFeeSubmission_tblMonth" />
+        <AssociationConnector Association="dbZainabModel.FK_tblFeeSubmission_tblRoom" />
+        <AssociationConnector Association="dbZainabModel.FK_tblFeeSubmission_tblStudentInformation" />
+        <EntityTypeShape EntityType="dbZainabModel.tblRoomType" Width="1.5" PointX="6.375" PointY="16.625" />
+        <AssociationConnector Association="dbZainabModel.FK_tblRoom_tblRoomType" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
